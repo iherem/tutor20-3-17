@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function(){
-    echo "Welcome ";
-});
+Route::get('/home', 'StudentController@index');
+Route::get('/home/{option}/{limit}', 'StudentController@limit');
+Route::get('/home/{option}', 'StudentController@limit');
+Route::get('/add','StudentController@addStudent');
+//ex localhost:8000/home/limit/5
