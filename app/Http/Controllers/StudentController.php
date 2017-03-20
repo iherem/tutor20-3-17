@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
+use Response;
 use Illuminate\Support\Facades\Input;
 use App\Student;
 use App\Repositories\StudentRepositoryInterface;
@@ -76,5 +77,11 @@ class StudentController extends Controller
             );
             return view('edit', $data);
         }
+    }
+
+    function test(){
+        $students = Student::all();
+        $response = Response::json($students);
+        return $response;
     }
 }

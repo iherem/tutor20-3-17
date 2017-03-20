@@ -26,3 +26,5 @@ Route::get('/delete/{student_id}', 'StudentController@deleteStudent');
 //EDIT
 Route::get('/edit/{student_id}','StudentController@editStudent');
 Route::post('/edit','StudentController@editStudent');
+
+Route::get('/test', 'StudentController@test');

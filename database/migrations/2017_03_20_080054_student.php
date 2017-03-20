@@ -13,8 +13,8 @@ class Student extends Migration
      */
     public function up()
     {
-        Schema::create('students1', function (Blueprint $table) {
-            $table->string('student_id')->unique();
+        Schema::create('students5', function (Blueprint $table) {
+            $table->string('student_id',50)->unique();
             $table->string('student_password');
             $table->string('student_name');
             $table->string('student_tel');
@@ -29,6 +29,6 @@ class Student extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students1');
+        Schema::dropIfExists('students5');
     }
 }
