@@ -57,4 +57,24 @@ class StudentController extends Controller
             echo "Can not delete";
         }
     }
+
+    function editStudent($student_id=0){
+        if(Request::isMethod('post')){
+            $id = Input::get('std_id');
+            $name = Input::get('std_name');
+            $tel = Input::get('std_tel');
+            $result = $this->StudentRepository->updateStudent($id,$name,$tel);
+            if($result){
+                return redirect('/home');
+            }else{
+                echo "Can not Update";
+            }
+        }elseif(Request::isMethod('get')){
+            $student = $this->StudentRepository->findById($student_id);
+            $data = array(
+                'student'=>$student
+            );
+            return view('edit', $data);
+        }
+    }
 }

@@ -21,4 +21,8 @@ Route::get('/home/{option}', 'StudentController@limit');
 Route::get('/add','StudentController@addStudent');
 Route::post('/add','StudentController@addStudent');
 Route::get('/delete/{student_id}', 'StudentController@deleteStudent');
-//ex localhost:8000/home/limit/5
+
+
+//EDIT
+Route::get('/edit/{student_id}','StudentController@editStudent');
+Route::post('/edit','StudentController@editStudent');

@@ -9,7 +9,7 @@ class StudentRepository implements StudentRepositoryInterface{
     }
 
     function findById($id){
-
+        return Student::where('student_id',$id)->first();
     }
 
     function addStudent($student_id,$student_name,$student_tel){ // รับเป็น array
@@ -33,6 +33,19 @@ class StudentRepository implements StudentRepositoryInterface{
 
     function deleteStudent($student_id){
         $result =  Student::where('student_id','=',$student_id)->delete();
+        if($result > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function updateStudent($student_id,$student_name,$student_tel){
+        $data = array(
+            'student_name'=>$student_name,
+            'student_tel'=>$student_tel
+        );
+        $result = Student::where('student_id',$student_id)->update($data);
         if($result > 0){
             return true;
         }else{

@@ -28,7 +28,7 @@
               <td>{{ $student->student_name }}</td>
               <td>{{ $student->student_tel }}</td>
               <td>
-                <a href="" class="btn btn-info btn-sm">Edit</a>
+                <a href="/edit/{{ $student->student_id }}" class="btn btn-info btn-sm">Edit</a>
                 <a href="/delete/{{ $student->student_id }}" class="btn btn-danger btn-sm btn-delete">Delete</a>
               </td>
             </tr>
