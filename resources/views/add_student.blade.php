@@ -14,7 +14,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="" class="form">
+                <form action="/add" class="form" method="post">
+                    {{ Form::token() }}
                     <div class="form-group">
                         <label for="std_id" class="form-label">Student Id</label>
                         <input type="text" class="form-control" name="std_id"/>

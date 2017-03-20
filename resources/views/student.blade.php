@@ -29,7 +29,7 @@
               <td>{{ $student->student_tel }}</td>
               <td>
                 <a href="" class="btn btn-info btn-sm">Edit</a>
-                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                <a href="/delete/{{ $student->student_id }}" class="btn btn-danger btn-sm">Delete</a>
               </td>
             </tr>
             @endforeach

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use Illuminate\Support\Facades\Input;
 use App\Student;
 use App\Repositories\StudentRepositoryInterface;
 class StudentController extends Controller
@@ -33,6 +34,27 @@ class StudentController extends Controller
     }
 
     function addStudent(){
-        return view('add_student');
+        if(Request::isMethod('post')){
+            $studentId = Input::get('std_id');
+            $studentName = Input::get('std_name');
+            $studentTel = Input::get('std_tel');
+            $result = $this->StudentRepository->addStudent($studentId,$studentName,$studentTel);
+            if($result){
+                return redirect('/home');
+            }else{
+                echo "Failed to add student";
+            }
+        }elseif(Request::isMethod('get')){
+            return view('add_student');
+        }
+    }
+
+    function deleteStudent($student_id){
+        $result = $this->StudentRepository->deleteStudent($student_id);
+        if($result){
+            return redirect('/home');
+        }else{
+            echo "Can not delete";
+        }
     }
 }

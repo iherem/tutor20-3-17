@@ -19,4 +19,6 @@ Route::get('/home', 'StudentController@index');
 Route::get('/home/{option}/{limit}', 'StudentController@limit');
 Route::get('/home/{option}', 'StudentController@limit');
 Route::get('/add','StudentController@addStudent');
+Route::post('/add','StudentController@addStudent');
+Route::get('/delete/{student_id}', 'StudentController@deleteStudent');
 //ex localhost:8000/home/limit/5
