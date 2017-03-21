@@ -17,7 +17,7 @@ class StudentRepository implements StudentRepositoryInterface{
             'student_id'=>$student_id,
             'student_name'=>$student_name,
             'student_tel'=>$student_tel,
-            'student_password'=>Hash::make(str_random(32))
+            'student_password'=>'123456789'
         );
         try{
             $result = Student::create($data);
@@ -47,6 +47,16 @@ class StudentRepository implements StudentRepositoryInterface{
         );
         $result = Student::where('student_id',$student_id)->update($data);
         if($result > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    function login($student_id,$student_password){
+        $student = Student::where('student_id',$student_id)->where('student_password',$student_password);
+        //select * from student where student_id = 'student_id' and student_password = 'password';
+        if(count($student->first())>0){
             return true;
         }else{
             return false;

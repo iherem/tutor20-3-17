@@ -77,4 +77,22 @@ class StudentController extends Controller
             return view('edit', $data);
         }
     }
+
+    function login(){
+        if(Request::isMethod('post')){
+            $student_id = Input::get('studentid');
+            $student_password = Input::get('password');
+            $result = $this->StudentRepository->login($student_id,$student_password);
+            if($result){
+                return redirect('home');
+            }else{
+                $data = array(
+                    'msg_error'=>'Login Fail'
+                );
+                return view('login', $data);
+            }
+        }elseif(Request::isMethod('get')){
+            return view('login');
+        }
+    }
 }

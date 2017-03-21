@@ -7,4 +7,5 @@ interface StudentRepositoryInterface{
     function getLimitStudent($limit);
     function deleteStudent($student_id);
     function updateStudent($student_id,$student_name,$student_tel);
+    function login($student_id,$student_password);
 }
